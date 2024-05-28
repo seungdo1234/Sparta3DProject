@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33365385095777368}
   - component: {fileID: 23938478137607378}
   - component: {fileID: 703757893829416577}
+  - component: {fileID: 8838664583552017320}
   m_Layer: 0
   m_Name: rpgpp_lt_rock_small_02
   m_TagString: Untagged
@@ -106,3 +107,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7110966a22a1bd74c894def7bbb4b8cb, type: 3}
+--- !u!114 &8838664583552017320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019362320417226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19fc4de97a942f6aadc0c2ad425959a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: ad47404991f200e4e84e17cba23c950f, type: 2}

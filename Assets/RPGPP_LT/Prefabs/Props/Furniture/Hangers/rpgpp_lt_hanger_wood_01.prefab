@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 33283472172813410}
   - component: {fileID: 23220411763528614}
   - component: {fileID: -9210438515528354166}
-  m_Layer: 0
+  - component: {fileID: -1955367072274922316}
+  m_Layer: 9
   m_Name: rpgpp_lt_hanger_wood_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,3 +107,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: dc53ddfef4a2d414f83c0332e80bfbb6, type: 3}
+--- !u!114 &-1955367072274922316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308977663007590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19fc4de97a942f6aadc0c2ad425959a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 19147b08b7ce2ad4b92eefe727b85f2b, type: 2}
