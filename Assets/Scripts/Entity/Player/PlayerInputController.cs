@@ -47,11 +47,11 @@ public class PlayerInputController : PlayerController
             CallUseEvent(num);
         }
     }
-    public void OnPOV(InputAction.CallbackContext context)
+    public void OnPov(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
         {
-            CallPOVEvent();
+            CallPovEvent();
         }
     }
 }

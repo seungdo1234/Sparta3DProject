@@ -60,7 +60,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "POV",
+                    "name": "Pov",
                     "type": "Button",
                     "id": "c4d14860-4df2-477f-8473-853616d8c183",
                     "expectedControlType": "Button",
@@ -264,7 +264,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "POV",
+                    "action": "Pov",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
