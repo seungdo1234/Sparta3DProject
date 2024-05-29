@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public event Action<Vector2> OnLookEvent;
     public event Action OnJumpEvent;
     public event Action OnRunEvent;
+    public event Action<int> OnUseEvent;
+    public event Action OnPOVEvent;
 
     protected void CallMoveEvent(Vector2 dir)
     {
@@ -25,5 +27,13 @@ public class PlayerController : MonoBehaviour
     protected void CallRunEvent()
     {
         OnRunEvent?.Invoke();;
+    }
+    protected void CallUseEvent(int num)
+    {
+        OnUseEvent?.Invoke(num);
+    }
+    protected void CallPOVEvent()
+    {
+        OnPOVEvent?.Invoke();
     }
 }

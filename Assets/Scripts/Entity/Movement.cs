@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private Rigidbody rigid;
     private Vector2 curMoveDir;
     private bool isJumpping;
+    private bool isRunning;
     private void Awake()
     {
         controller = GetComponent<PlayerController>();
@@ -55,10 +56,11 @@ public class Movement : MonoBehaviour
 
     private void Run()
     {
-        float curSpeed = GameManager.Instance.PlayerData.CurMoveSpeed;
-        float runSpeed = GameManager.Instance.PlayerData.RunMoveSpeed;
-        float baseSpeed = GameManager.Instance.PlayerData.BaseMoveSpeed;
-        GameManager.Instance.PlayerData.CurMoveSpeed = curSpeed == runSpeed ? baseSpeed : runSpeed;
+        isRunning = !isRunning;
+        float run = isRunning ? 1f : -1f;
+        
+        GameManager.Instance.PlayerData.CurMoveSpeed += GameManager.Instance.PlayerData.RunMoveSpeed * run;
+
     }
     private void OnCollisionEnter(Collision other)
     {

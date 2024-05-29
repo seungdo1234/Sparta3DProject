@@ -39,4 +39,19 @@ public class PlayerInputController : PlayerController
             CallRunEvent();
         }
     }
+    
+    public void OnUse(InputAction.CallbackContext context)
+    {
+        if (int.TryParse(context.control.displayName, out int num))
+        {
+            CallUseEvent(num);
+        }
+    }
+    public void OnPOV(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            CallPOVEvent();
+        }
+    }
 }

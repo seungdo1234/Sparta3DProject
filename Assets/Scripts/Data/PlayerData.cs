@@ -10,6 +10,8 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private float baseMoveSpeed;
     [SerializeField] private float runMoveSpeed;
     [SerializeField] private float jumpPower;
+    [SerializeField] private float maxStamina;
+    [SerializeField] private float curStamina;
 
     private float curHealth;
     private float curMoveSpeed;
@@ -37,10 +39,28 @@ public class PlayerData : MonoBehaviour
             }
         } 
     }
+    public float CurStamina
+    {
+        get { return curStamina;}
+        set
+        {
+            curStamina += value;
+            if (curStamina > maxStamina)
+            {
+                curStamina = maxStamina;
+            }
+
+            if (curStamina <= 0)
+            {
+                curStamina = 0;
+            }
+        } 
+    }
     public float BaseMoveSpeed => baseMoveSpeed;
     public float RunMoveSpeed => runMoveSpeed;
     public float JumpPower => jumpPower;
     public float MaxHealth => maxHealth;
+    public float MaxStamina => maxStamina;
     
     private void Awake()
     {

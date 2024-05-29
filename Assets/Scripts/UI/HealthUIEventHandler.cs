@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class HealthUIEventHandler : MonoBehaviour
 {
     [SerializeField] private GameObject takeDamageObject;
-    [SerializeField]private HealthSystem healthSystem;
+    [FormerlySerializedAs("healthSystem")] [SerializeField]private PlayerStatEventHandler playerStatEventHandler;
     private Image hpBar;
 
     private void Awake()
@@ -18,7 +19,7 @@ public class HealthUIEventHandler : MonoBehaviour
     private void Start()
     {
         // healthSystem = GameManager.Instance.PlayerData.GetComponent<HealthSystem>();
-        healthSystem.OnTakeDamageEvent += UpdateHealthUI;
+        playerStatEventHandler.OnTakeDamageEvent += UpdateHealthUI;
     }
 
     private void UpdateHealthUI()
