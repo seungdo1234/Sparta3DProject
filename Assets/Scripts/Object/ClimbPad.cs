@@ -10,18 +10,18 @@ public class ClimbPad : MonoBehaviour
     private Coroutine climbCoroutine;
     private LayerMask targetLayer;
 
+    private Movement playerMovement;
     private Movement PlayerMovement // 프로퍼티
     {
         get
         {
-            if (PlayerMovement == null)
+            if (playerMovement == null)
             {
-                PlayerMovement = GameManager.Instance.PlayerData.GetComponent<Movement>();
+                playerMovement = GameManager.Instance.PlayerData.GetComponent<Movement>();
             }
 
-            return PlayerMovement;
+            return playerMovement;
         }
-        set => PlayerMovement = value;
     } 
 
     private void Awake()
@@ -32,7 +32,6 @@ public class ClimbPad : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log(GameManager.Instance.IsLayerMatched(other.gameObject.layer, targetLayer.value));
         if (GameManager.Instance.IsLayerMatched(targetLayer.value ,other.gameObject.layer) && other.contacts[0].normal.z == 1 )
         {
             PlayerMovement.WallClimb(true);
