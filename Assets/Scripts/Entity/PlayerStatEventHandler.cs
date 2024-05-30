@@ -5,15 +5,13 @@ using UnityEngine;
 
 public class PlayerStatEventHandler : MonoBehaviour
 {
-
     private Coroutine delayCoroutine;
     public event Action OnHealthUpEvent;
     public event Action OnTakeDamageEvent;
     
 
-    public void HealthRecoveryEvent(float amount)
+    public void HealthEvent(float amount)
     {
-        Debug.Log("체력 회복 !");
         GameManager.Instance.PlayerData.CurHealth = amount;
 
         if (amount > 0)

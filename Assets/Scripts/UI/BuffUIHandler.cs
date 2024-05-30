@@ -21,7 +21,6 @@ public class BuffUIHandler : MonoBehaviour
     {
         panel.gameObject.SetActive(true);
         coolTimeUIHandler.SetCoolTime(duration);
-        Debug.Log(coolTimeUIHandler.gameObject.activeSelf);
         StartCoroutine(PanelDurationCoroutine(duration));
     }
 

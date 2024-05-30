@@ -9,6 +9,6 @@ public class HealingPotionSlot : Slot
         
         base.UseConsumableItem();
         
-        playerStatEventHandler.HealthRecoveryEvent(conItemData.value);
+        playerStatEventHandler.HealthEvent(conItemData.value);
     }
 }

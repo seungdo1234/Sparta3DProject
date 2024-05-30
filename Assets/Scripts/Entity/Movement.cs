@@ -9,13 +9,16 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask jumpCollisionLayers;
     private PlayerController controller;
     private Rigidbody rigid;
+    private AnimationController animationController;
     private Vector2 curMoveDir;
     private bool isJumpping;
     private bool isRunning;
+    public bool isClimb;
     private void Awake()
     {
         controller = GetComponent<PlayerController>();
         rigid = GetComponent<Rigidbody>();
+        animationController = GetComponent<AnimationController>();
     }
 
     private void Start()
@@ -32,11 +35,20 @@ public class Movement : MonoBehaviour
     
     private void Move()
     {
-        // 앞뒤 + 좌우로 플레이어를 움직임
-        Vector3 dir = transform.forward * curMoveDir.y + transform.right * curMoveDir.x;
-        dir *= GameManager.Instance.PlayerData.CurMoveSpeed;
-        // 점프를 했을 때만 위아래로 움직어여되기 때문에 미세한 값을 유지시키기위해 velocity.y를 넣음
-        dir.y = rigid.velocity.y;
+        Vector3 dir = Vector3.zero;
+        if (!isClimb)
+        {
+            // 앞뒤 + 좌우로 플레이어를 움직임
+            dir = transform.forward * curMoveDir.y + transform.right * curMoveDir.x;
+            dir *= GameManager.Instance.PlayerData.CurMoveSpeed;
+            // 점프를 했을 때만 위아래로 움직어여되기 때문에 미세한 값을 유지시키기위해 velocity.y를 넣음
+            dir.y = rigid.velocity.y;
+        }
+        else
+        {
+            dir = transform.up * curMoveDir.y + transform.right * curMoveDir.x;
+            dir *= GameManager.Instance.PlayerData.CurMoveSpeed;
+        }
         rigid.velocity = dir;
     }
 
@@ -51,9 +63,10 @@ public class Movement : MonoBehaviour
         {
             rigid.AddForce(Vector2.up * GameManager.Instance.PlayerData.JumpPower , ForceMode.Impulse);
             isJumpping = true;
+            animationController.JumpAnimation(true);
         }
     }
-
+    
     private void Run()
     {
         isRunning = !isRunning;
@@ -64,9 +77,16 @@ public class Movement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (GameManager.Instance.IsLayerMatched(jumpCollisionLayers.value, other.gameObject.layer))
+        if (isJumpping && GameManager.Instance.IsLayerMatched(jumpCollisionLayers.value, other.gameObject.layer))
         {
             isJumpping = false;
+            animationController.JumpAnimation(false);
         }
+    }
+
+
+    public void WallClimb(bool isTrue)
+    {
+        isClimb = isTrue;
     }
 }
