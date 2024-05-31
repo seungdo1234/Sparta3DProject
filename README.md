@@ -1,10 +1,10 @@
-# Sparta2DTopDownProject
+# Sparta3DProject
 
 
 <br/>
 <br/>
 
-<p align="center"> ** TopViewGame **  </p>
+<p align="center"> ** 3DPlatfomerGame **  </p>
 
 ##### <p align="center"> <b> _with 내일배움캠프 6주차 개인프로젝트_ </b>
 
