@@ -28,6 +28,4 @@ public class PromptUIHandler : MonoBehaviour
     {
         promptImage.gameObject.SetActive(false);
     }
-    
-    
 }
